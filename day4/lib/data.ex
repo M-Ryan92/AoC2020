@@ -1,8 +1,9 @@
-defmodule Pasports do
+defmodule Data do
   defstruct byr: nil, iyr: nil, eyr: nil, hgt: nil, hcl: nil, ecl: nil, pid: nil, cid: nil
 
   def get do
-    File.stream!("pasports.txt")
+    "data.txt"
+    |> File.stream!()
     |> Stream.chunk_by(fn line -> line === "\n" end)
     |> Stream.map(fn lines ->
       map =
@@ -28,7 +29,7 @@ defmodule Pasports do
           end
         end)
 
-      struct(Pasports, map)
+      struct(Data, map)
     end)
     |> Stream.filter(fn lines -> is_map(lines) end)
     |> Enum.to_list()

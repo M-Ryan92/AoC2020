@@ -4,18 +4,18 @@ defmodule Day4 do
   """
 
   def run do
-    Pasports.get()
+    Data.get()
     |> Enum.filter(fn e -> valid?(e) end)
     |> length()
   end
 
-  def valid?(%Pasports{byr: nil}), do: false
-  def valid?(%Pasports{iyr: nil}), do: false
-  def valid?(%Pasports{eyr: nil}), do: false
-  def valid?(%Pasports{hgt: nil}), do: false
-  def valid?(%Pasports{hcl: nil}), do: false
-  def valid?(%Pasports{ecl: nil}), do: false
-  def valid?(%Pasports{pid: nil}), do: false
+  def valid?(%{byr: nil}), do: false
+  def valid?(%{iyr: nil}), do: false
+  def valid?(%{eyr: nil}), do: false
+  def valid?(%{hgt: nil}), do: false
+  def valid?(%{hcl: nil}), do: false
+  def valid?(%{ecl: nil}), do: false
+  def valid?(%{pid: nil}), do: false
 
-  def valid?(%Pasports{}), do: true
+  def valid?(%{}), do: true
 end
