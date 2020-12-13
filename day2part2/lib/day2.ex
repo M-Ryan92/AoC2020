@@ -23,6 +23,6 @@ defmodule Day2 do
   defp process(_, acc), do: acc
 
   defp valid?(char, min, char) when min !== char, do: true
-  defp valid?(char, char, _), do: true
+  defp valid?(char, char, max) when max !== char, do: true
   defp valid?(_, _, _), do: false
 end
