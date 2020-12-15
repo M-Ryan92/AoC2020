@@ -26,7 +26,5 @@ defmodule Day4 do
   def valid?(%{ecl: nil}), do: false
   def valid?(%{pid: nil}), do: false
 
-  def valid?(_) do
-    true
-  end
+  def valid?(_), do: true
 end
